@@ -22,7 +22,7 @@ create deployment
 To check if deployment is created
 #kubeclt get deployment -n interview
 
-#kubectl describe service -n interview
+#kubectl describe deployment -n interview
 
 create service
 #kubectl create -f interview-service.yaml
