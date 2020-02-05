@@ -41,6 +41,13 @@ Note - the ingress controller have used is Traefik, however there are other type
 To get the endpoint to test with
 #kubectl get ing -n interview
 
+To deploy the the network-policy resource
+Note this is implemented for pod isolation so pods within the ingress namespace can communicate with pods in the interview namespace. this is good for pod isolation where there are multiple namespace.
+#kubectl create -f ingress-ns
+
+To deploy the network policy
+#kubectl create -f ingress-namespsce-nw-policy.yaml
+
 NOTE - this dns name will not work as its a dummy, except you have this properly integrated into your environment and all set up in your dns config/route 53.
 but to test the deployment you can curl the endpoint of the cluster IP with the port within the cluster or host you are running this from. to get the clusterIP, run this kubectl get service -n interview or kubectl describe service -n interview and the port in this case 80.
 
