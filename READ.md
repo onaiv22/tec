@@ -1,5 +1,5 @@
-This project shows the deployment of a container resource in to a kubernetes cluster.
-To deploy the following resources, ensure you have the following already installed in your machine
+This project shows the deployment of a container resource into a kubernetes cluster.
+To deploy the following resources, ensure you have the following already installed on your machine
 - kubernetes cluster / minikube 
 - Docker 
 - Git
@@ -18,23 +18,28 @@ To check if namespace is created
 
 create deployment 
 #kubectl create -f interview-deployment.yaml
+
 To check if deployment is created
 #kubeclt get deployment -n interview
+
 #kubectl describe service -n interview
 
 create service
 #kubectl create -f interview-service.yaml
+
 To check if service is created
 #kubectl get service -n interview
+
 #kubectl describe service -n interview
 
 Create ingress.
 Note - the ingress controller have used is Traefik, however there are other types you can choose from.
 #kubectl create -f interview-ingress.yaml
+
 #kubectl describe ingress -n interview
 
 To get the endpoint to test with
-#kubectl get ing -n interview.
+#kubectl get ing -n interview
 
 NOTE - this dns name will not work as its a dummy, except you have this properly integrated into your environment and all set up in your dns config/route 53.
 but to test the deployment you can curl the endpoint of the cluster IP with the port within the cluster or host you are running this from. to get the clusterIP, run this kubectl get service -n interview or kubectl describe service -n interview and the port in this case 80.
