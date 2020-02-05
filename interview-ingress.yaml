@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: interview-ingress
+  namespace: interview
+  annotations:
+     kubernetes.io/ingress.class: traefik
+spec:
+   rules:
+   - host: interview.lendingworks.co.uk      
+     http:
+        paths:
+        - path: /
+          backend:
+             serviceName: interview-service
+             servicePort: http        
